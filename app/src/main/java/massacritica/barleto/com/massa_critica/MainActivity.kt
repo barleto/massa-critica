@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         unmake_trip.setOnClickListener {
-             massaCritica.unmakeTrip()
+            massaCritica.unmakeTrip()
             hideSoftKeyBoard()
             saveMassaCritica()
         }
