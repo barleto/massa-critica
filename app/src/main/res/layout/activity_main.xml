@@ -165,12 +165,6 @@
                     android:layout_height="wrap_content">
 
                     <Button
-                        android:id="@+id/unmake_trip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Desfazer última"/>
-
-                    <Button
                         android:id="@+id/make_trip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -179,6 +173,20 @@
                 </LinearLayout>
 
             </LinearLayout>
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ViagensFeitas:"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/trip_list"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                tools:listitem="@layout/main_line_view"
+            />
 
         </LinearLayout>
 

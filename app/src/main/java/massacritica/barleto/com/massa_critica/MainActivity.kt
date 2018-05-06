@@ -11,6 +11,11 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,10 +29,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var editor: SharedPreferences.Editor
     var gson = Gson()
     lateinit var massaCritica: MassaCriticaData
+    lateinit var adapter: TripListAdapter
 
     data class DepositData(var date: String, var value: Float)
 
-    data class TripData(var date: String, var unmade: Boolean = false)
+    data class TripData(var date: String, var price: Float)
 
     class MassaCriticaData {
         var passagePrice = 0f
@@ -58,19 +64,16 @@ class MainActivity : AppCompatActivity() {
 
         fun makeTrip() {
             currentBalance -= passagePrice
-            tripList.add(TripData(getTodaysDate()))
+            tripList.add(TripData(getTodaysDate(), passagePrice))
         }
 
-        fun unmakeTrip() {
-            if(tripList.count() < 1){
-                return
-            }
+        fun unmakeTrip(trip: TripData) {
+            tripList.remove(trip)
             currentBalance += passagePrice
-            tripList.last().unmade = true
         }
 
         private fun getTodaysDate(): String {
-            val timeStamp = SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime())
+            val timeStamp = SimpleDateFormat("dd/MM/yyyy (EEEE)").format(Calendar.getInstance().getTime())
             return timeStamp
         }
 
@@ -87,7 +90,22 @@ class MainActivity : AppCompatActivity() {
 
         updateUI()
 
+        updateTripList()
+
         setListeners()
+
+    }
+
+    private fun updateTripList() {
+        val layoutManager = LinearLayoutManager(this)
+        trip_list.setLayoutManager(layoutManager)
+
+        adapter = TripListAdapter(massaCritica.tripList, this)
+        trip_list.adapter = adapter
+
+        // Configurando um dividr entre linhas, para uma melhor visualização.
+        trip_list.addItemDecoration(
+                DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
     }
 
@@ -115,12 +133,7 @@ class MainActivity : AppCompatActivity() {
             massaCritica.makeTrip()
             hideSoftKeyBoard()
             saveMassaCritica()
-        }
-
-        unmake_trip.setOnClickListener {
-            massaCritica.unmakeTrip()
-            hideSoftKeyBoard()
-            saveMassaCritica()
+            updateTripList()
         }
     }
 
@@ -133,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveMassaCritica() {
+    fun saveMassaCritica() {
         val json = gson.toJson(massaCritica, MassaCriticaData::class.java)
         editor.putString(MASSA_CRITICA_DATA, json)
         editor.apply()
