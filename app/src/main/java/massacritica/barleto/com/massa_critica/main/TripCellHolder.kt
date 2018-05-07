@@ -8,8 +8,8 @@ import massacritica.barleto.com.massa_critica.R
 
 class TripCellHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-    lateinit var dateHolder: TextView
-    lateinit var deleteButton: ImageView
+    var dateHolder: TextView
+    var deleteButton: ImageView
 
     init {
         dateHolder = view.findViewById(R.id.cell_date)

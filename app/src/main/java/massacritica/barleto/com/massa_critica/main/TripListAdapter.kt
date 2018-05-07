@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import massacritica.barleto.com.massa_critica.R
 
-class TripListAdapter(val tripList: MutableList<MainActivity.TripData>, val mainActivity: MainActivity) : RecyclerView.Adapter<TripCellHolder>() {
+class TripListAdapter(val tripList: MutableList<TripData>, val mainActivity: MainActivity) : RecyclerView.Adapter<TripCellHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripCellHolder {
-        return TripCellHolder(LayoutInflater.from(parent.context).inflate(R.layout.main_line_view, parent, false))
+        return TripCellHolder(LayoutInflater.from(parent.context).inflate(R.layout.trip_made_cell, parent, false))
     }
 
     override fun getItemCount(): Int {

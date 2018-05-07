@@ -165,6 +165,12 @@
                     android:layout_height="wrap_content">
 
                     <Button
+                        android:id="@+id/notification_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Notificações"/>
+
+                    <Button
                         android:id="@+id/make_trip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -185,7 +191,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                tools:listitem="@layout/main_line_view"
+                tools:listitem="@layout/trip_made_cell"
             />
 
         </LinearLayout>
