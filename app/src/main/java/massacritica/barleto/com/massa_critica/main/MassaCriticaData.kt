@@ -51,4 +51,8 @@ class MassaCriticaData {
         return timeStamp
     }
 
+    fun checkNotifications() {
+        //TODO
+    }
+
 }

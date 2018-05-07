@@ -29,6 +29,8 @@ class AppApplication: Application() {
         editor = sharedPreferences.edit()
 
         retrieveMassaCritica()
+
+        massaCritica.checkNotifications()
     }
 
 
