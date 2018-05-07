@@ -1,4 +1,4 @@
-package massacritica.barleto.com.massa_critica
+package massacritica.barleto.com.massa_critica.main
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -13,9 +13,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-
-
-
+import massacritica.barleto.com.massa_critica.R
 
 
 class MainActivity : AppCompatActivity() {

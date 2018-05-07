@@ -1,8 +1,9 @@
-package massacritica.barleto.com.massa_critica
+package massacritica.barleto.com.massa_critica.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import massacritica.barleto.com.massa_critica.R
 
 class TripListAdapter(val tripList: MutableList<MainActivity.TripData>, val mainActivity: MainActivity) : RecyclerView.Adapter<TripCellHolder>() {
 

@@ -1,9 +1,10 @@
-package massacritica.barleto.com.massa_critica
+package massacritica.barleto.com.massa_critica.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import massacritica.barleto.com.massa_critica.R
 
 class TripCellHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
