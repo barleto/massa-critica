@@ -14,7 +14,9 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import massacritica.barleto.com.massa_critica.AppApplication
 import massacritica.barleto.com.massa_critica.R
+import massacritica.barleto.com.massa_critica.notification.TripNotification
 import massacritica.barleto.com.massa_critica.notification.TripNotificationActivity
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +40,15 @@ class MainActivity : AppCompatActivity() {
         updateTripList()
 
         setListeners()
+
+
+//        massaCritica.tripNotificationList.clear()
+//        saveMassaCritica()
+        val then = Calendar.getInstance()
+        then.add(Calendar.SECOND,1)
+        val not = TripNotification(then,12345)
+        massaCritica.tripNotificationList.add(not)
+        not.scheduleNotification(applicationContext)
 
     }
 

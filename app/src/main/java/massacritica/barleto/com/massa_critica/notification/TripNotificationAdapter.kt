@@ -18,7 +18,7 @@ class TripNotificationAdapter(val tripNotificationList: MutableList<TripNotifica
 
     override fun onBindViewHolder(holder: TripNotificationCellHolder, position: Int) {
         val tripNotification = tripNotificationList[position]
-        holder.dateHolder.text = tripNotification.date.toString()
+        holder.dateHolder.text = tripNotification.calendar.toString()
         holder.detailsButton.setOnClickListener {
             //TODO
         }
