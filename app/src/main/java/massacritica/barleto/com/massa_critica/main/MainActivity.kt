@@ -2,20 +2,18 @@ package massacritica.barleto.com.massa_critica.main
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import massacritica.barleto.com.massa_critica.AppApplication
 import massacritica.barleto.com.massa_critica.R
 import massacritica.barleto.com.massa_critica.notification.TripNotification
-import massacritica.barleto.com.massa_critica.notification.TripNotificationActivity
+import massacritica.barleto.com.massa_critica.notification.list.TripNotificationActivity
 import java.util.*
 
 
@@ -40,15 +38,6 @@ class MainActivity : AppCompatActivity() {
         updateTripList()
 
         setListeners()
-
-
-//        massaCritica.tripNotificationList.clear()
-//        saveMassaCritica()
-        val then = Calendar.getInstance()
-        then.add(Calendar.SECOND,1)
-        val not = TripNotification(then,12345)
-        massaCritica.tripNotificationList.add(not)
-        not.scheduleNotification(applicationContext)
 
     }
 

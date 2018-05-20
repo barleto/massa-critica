@@ -1,4 +1,4 @@
-package massacritica.barleto.com.massa_critica.notification
+package massacritica.barleto.com.massa_critica.notification.list
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -9,11 +9,11 @@ import massacritica.barleto.com.massa_critica.R
 class TripNotificationCellHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     var dateHolder: TextView
-    var detailsButton: ImageView
+    var deleteButton: ImageView
 
     init {
         dateHolder = view.findViewById(R.id.cell_notification_date)
-        detailsButton = view.findViewById(R.id.cell_notification_details)
+        deleteButton = view.findViewById(R.id.cell_notification_delete)
     }
 
 }

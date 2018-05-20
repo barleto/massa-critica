@@ -3,6 +3,7 @@
     package="massacritica.barleto.com.massa_critica">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:name=".AppApplication"
         android:allowBackup="true"
@@ -18,10 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".notification.TripNotificationActivity" />
+        <activity android:name=".notification.list.TripNotificationActivity" />
 
-        <receiver android:name=".notification.TripNotificationAlarm" />
+        <receiver android:name=".notification.TripNotificationBroadcastReceiver" />
 
+        <activity android:name=".notification.create.CreateTripNotificationActivity"></activity>
     </application>
 
 </manifest>
