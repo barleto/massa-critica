@@ -9,8 +9,8 @@ import android.content.Intent
 import android.support.v4.app.NotificationCompat
 import massacritica.barleto.com.massa_critica.AppApplication
 import android.support.v4.app.NotificationManagerCompat
-
-
+import massacritica.barleto.com.massa_critica.main.MainActivity
+import massacritica.barleto.com.massa_critica.notification.action.TripNotificationActionReceiver
 
 
 class TripNotification(val dayOfWeek: Int, val hour: Int, val minute: Int, val notificationId: String) {
@@ -72,15 +72,26 @@ class TripNotification(val dayOfWeek: Int, val hour: Int, val minute: Int, val n
     }
 
     fun activateNotification(){
+        val context = AppApplication.instance.applicationContext
+
+        val intentYes = Intent(context, TripNotificationActionReceiver::class.java)
+        intentYes.putExtra(INTENT_KEY,true)
+        val pIntentYes = PendingIntent.getBroadcast(context, System.currentTimeMillis().toInt(), intentYes, 0)
+
+        val intentNo = Intent(context, TripNotificationActionReceiver::class.java)
+        intentNo.putExtra(INTENT_KEY,false)
+        val pIntentNo = PendingIntent.getBroadcast(context, System.currentTimeMillis().toInt()+1, intentNo, 0)
+
         val mBuilder = NotificationCompat.Builder(AppApplication.instance.applicationContext, "TripNotification")
                 .setSmallIcon(android.R.drawable.ic_dialog_alert)
-                .setContentTitle("Teste")
-                .setContentText("Isso é um teste")
+                .setContentTitle("Massa Crítica")
+                .setContentText("Você vai fazer viagem agora?")
+                .addAction(android.R.drawable.ic_input_add,"Sim", pIntentYes)
+                .addAction(android.R.drawable.ic_delete,"Não", pIntentNo)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
 
         val notificationManager = NotificationManagerCompat.from(AppApplication.instance.applicationContext)
         notificationManager.notify(0, mBuilder.build())
-
     }
 
 }

@@ -1,5 +1,6 @@
 package massacritica.barleto.com.massa_critica.main
 
+import android.util.Log
 import massacritica.barleto.com.massa_critica.notification.TripNotification
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,6 +38,7 @@ class MassaCriticaData {
     }
 
     fun makeTrip() {
+        Log.e("TripNotification","Making Trip")
         currentBalance -= passagePrice
         tripList.add(TripData(getTodaysDate(), passagePrice))
     }

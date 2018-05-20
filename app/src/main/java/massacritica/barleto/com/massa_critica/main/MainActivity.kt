@@ -84,9 +84,13 @@ class MainActivity : AppCompatActivity() {
         notification_button.setOnClickListener {
             val intent = Intent(this, TripNotificationActivity::class.java)
 
-            startActivity(intent)
+            startActivityForResult(intent,1)
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        adapter.notifyDataSetChanged()
     }
 
     private fun retrieveMassaCritica() {

@@ -23,7 +23,9 @@
 
         <receiver android:name=".notification.TripNotificationBroadcastReceiver" />
 
-        <activity android:name=".notification.create.CreateTripNotificationActivity"></activity>
+        <receiver android:name=".notification.action.TripNotificationActionReceiver" />
+
+        <activity android:name=".notification.create.CreateTripNotificationActivity" />
     </application>
 
 </manifest>
